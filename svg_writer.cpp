@@ -7,9 +7,8 @@ SVGWriter::SVGWriter(const std::string& filename, int w, int h)
          << "' height='" << height << "'>\n";
 }
 
-void SVGWriter::addRect(int x, int y, int w, int h) {
-    file << "<rect x='" << x << "' y='" << y << "' width='" << w
-         << "' height='" << h << "' fill='none' stroke='black'/>\n";
+void SVGWriter::addPolygon(const Polygon& poly) {
+    file << "  " << poly.toSVG() << "\n";
 }
 
 void SVGWriter::save() {
